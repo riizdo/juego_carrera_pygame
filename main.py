@@ -10,6 +10,8 @@ class Game():
         pygame.init()#inicializacion de pygame
         #creamos la pantalla con medidas en tupla
         self.__screen = pygame.display.set_mode((640, 480))
+        #pondriamos color de fondo con rgb
+        #self.__screen.fill(255, 0, 0)
         #ponemos nombre en la ventana
         pygame.display.set_caption("Carrera")
         #ponemos imagen en el fondo de la pantalla
