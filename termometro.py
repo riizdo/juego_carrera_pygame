@@ -18,6 +18,15 @@ class NumberInput():
     
     def __init__(self):
         self.__font = pygame.font.SysFont("Arial", 24)
+        
+        
+    def evento(self, event):
+        if event.unicode.isdigit():
+            self.__strValue += event.unicode
+            self.value(self.__strValue)
+        elif event.key == K_BACKSPACE:
+            self.__strValue = self.__strValue[0:-1]
+            self.value(self.__strValue)
            
            
     def render(self):
@@ -134,8 +143,11 @@ class MainApp():
     def start(self):
         while True:
             for event in pygame.event.get():
-                if event == pygame.QUIT:
+                if event.type == pygame.QUIT:
                     self.on_close()
+                    
+                if event.type == KEYDOWN:
+                    self.__entrada.evento(event)
     
             self.__screen.blit(self.__termometro.custome(), (50, 34))
             text = self.__entrada.reder()
